@@ -12,12 +12,10 @@ dotenv.config({ path: './config.env' });
 import app from './app.js';
 
 const DB = process.env.DATABASE_URI.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
+mongoose.set('strictQuery', false);
 
 mongoose
-  .connect(DB, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
+  .connect(DB)
   .then(() => console.log(chalk.green('DB connection successful!')))
   .catch(err => console.log(chalk.redBright(err)));
 

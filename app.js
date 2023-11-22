@@ -5,7 +5,7 @@ import cors from 'cors';
 import postRoutes from './routes/postRoutes.js';
 import dalleRoutes from './routes/dalleRoutes.js';
 
-dotenv.config();
+dotenv.config({ path: './config.env' });
 
 const app = express();
 app.use(cors());
